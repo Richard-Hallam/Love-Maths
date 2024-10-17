@@ -40,9 +40,23 @@ function runGame(gameType){
 }}
 
 
-
+/**
+ * checks the answer against the first element in 
+ * the returned calculateCorrectAnswer array
+ */
 function checkAnswer(){
     
+    let userAnswer = parseInt(document.getElementById("answer-box").value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if (isCorrect){
+        alert("Correct");
+    } else {
+        alert(`Your answer:${userAnswer} the correct answer is: ${calculatedAnswer}`)
+    }
+
+    runGame(calculatedAnswer[1])
 }
 
 /***
@@ -64,7 +78,7 @@ function calculateCorrectAnswer(){
 
 
 function incrementScore(){
-
+    
 }
 
 
